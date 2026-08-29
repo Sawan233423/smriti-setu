@@ -9,12 +9,41 @@ interface AccessibilityState extends AccessibilitySettings {
   toggleReducedMotion: () => void;
 }
 
-export const useAccessibilityStore = create<AccessibilityState>((set) => ({
+const updateDOMAccessibility = (state: AccessibilitySettings) => {
+  if (typeof document !== 'undefined') {
+    // 1. Dynamically scale root HTML font size (scales all rem units in Tailwind CSS)
+    document.documentElement.style.fontSize = `${state.fontSizeScale * 100}%`;
+
+    // 2. High Contrast mode toggle on document root & body
+    if (state.highContrast) {
+      document.documentElement.classList.add('high-contrast');
+      document.body.classList.add('high-contrast');
+    } else {
+      document.documentElement.classList.remove('high-contrast');
+      document.body.classList.remove('high-contrast');
+    }
+
+    // 3. Elderly mode toggle on document root & body
+    if (state.elderlyMode) {
+      document.documentElement.classList.add('elderly-mode');
+      document.body.classList.add('elderly-mode');
+    } else {
+      document.documentElement.classList.remove('elderly-mode');
+      document.body.classList.remove('elderly-mode');
+    }
+  }
+};
+
+const initialState: AccessibilitySettings = {
   elderlyMode: true, // Default to Elderly Mode ON for max accessibility
   fontSizeScale: 1.15,
   highContrast: false,
   speechAssistEnabled: true,
   reducedMotion: true,
+};
+
+export const useAccessibilityStore = create<AccessibilityState>((set) => ({
+  ...initialState,
 
   toggleElderlyMode: () =>
     set((state) => {
@@ -32,3 +61,11 @@ export const useAccessibilityStore = create<AccessibilityState>((set) => ({
   toggleSpeechAssist: () => set((state) => ({ speechAssistEnabled: !state.speechAssistEnabled })),
   toggleReducedMotion: () => set((state) => ({ reducedMotion: !state.reducedMotion })),
 }));
+
+// Apply initial DOM accessibility settings
+updateDOMAccessibility(initialState);
+
+// Subscribe to store changes to keep DOM accessibility perfectly in sync
+useAccessibilityStore.subscribe((state) => {
+  updateDOMAccessibility(state);
+});

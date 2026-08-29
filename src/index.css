@@ -7,6 +7,7 @@
     font-family: 'Outfit', 'Inter', 'Noto Sans Assamese', 'Noto Sans Bengali', system-ui, sans-serif;
     color: #212529;
     background-color: #F8F9FA;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 }
 
@@ -39,14 +40,105 @@
   border-radius: 4px;
 }
 
-/* High Contrast Mode Styling Overrides */
-.dark body, body.high-contrast {
-  background-color: #000000 !important;
-  color: #FFFFFF !important;
-}
-
 /* Accessible Focus Ring */
 *:focus-visible {
   outline: 3px solid #FFC107 !important;
   outline-offset: 2px !important;
+}
+
+/* High Contrast Mode Styling Overrides (WCAG 2.1 AAA Compliant) */
+html.high-contrast,
+html.high-contrast body,
+body.high-contrast {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+}
+
+html.high-contrast div,
+html.high-contrast section,
+html.high-contrast header,
+html.high-contrast footer,
+html.high-contrast nav,
+html.high-contrast main,
+html.high-contrast article,
+html.high-contrast aside,
+html.high-contrast form {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  border-color: #666666 !important;
+}
+
+html.high-contrast h1,
+html.high-contrast h2,
+html.high-contrast h3,
+html.high-contrast h4,
+html.high-contrast h5,
+html.high-contrast h6,
+html.high-contrast p,
+html.high-contrast span,
+html.high-contrast label,
+html.high-contrast li,
+html.high-contrast strong,
+html.high-contrast b,
+html.high-contrast th,
+html.high-contrast td {
+  color: #FFFFFF !important;
+}
+
+html.high-contrast a,
+html.high-contrast .text-amber-300,
+html.high-contrast .text-amber-400,
+html.high-contrast .text-yellow-400,
+html.high-contrast .text-emerald-400,
+html.high-contrast .text-blue-400,
+html.high-contrast .text-govNavy {
+  color: #FFFF00 !important;
+}
+
+html.high-contrast button {
+  background-color: #000000 !important;
+  color: #FFFF00 !important;
+  border: 2px solid #FFFF00 !important;
+  font-weight: 800 !important;
+}
+
+html.high-contrast button:hover,
+html.high-contrast button:focus {
+  background-color: #FFFF00 !important;
+  color: #000000 !important;
+  border: 2px solid #FFFFFF !important;
+}
+
+html.high-contrast input,
+html.high-contrast select,
+html.high-contrast textarea {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FFFF00 !important;
+}
+
+html.high-contrast input::placeholder {
+  color: #CCCCCC !important;
+}
+
+html.high-contrast .shadow-gov,
+html.high-contrast .shadow-md,
+html.high-contrast .shadow-lg,
+html.high-contrast .shadow-xl,
+html.high-contrast .shadow-2xl,
+html.high-contrast .border {
+  border: 2px solid #FFFFFF !important;
+  box-shadow: none !important;
+}
+
+/* Elderly Mode Adjustments */
+html.elderly-mode body {
+  letter-spacing: 0.015em;
+  line-height: 1.6;
+}
+
+html.elderly-mode button,
+html.elderly-mode a,
+html.elderly-mode input {
+  min-height: 42px;
 }
