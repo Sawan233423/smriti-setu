@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Outfit', 'Inter', 'Noto Sans Assamese', 'Noto Sans Bengali', system-ui, sans-serif;
+    color: #212529;
+    background-color: #F8F9FA;
+  }
+}
+
+/* Ticker Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.animate-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Custom Scrollbar for Government Lists */
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #E9ECEF;
+}
+::-webkit-scrollbar-thumb {
+  background: #004085;
+  border-radius: 4px;
+}
+
+/* High Contrast Mode Styling Overrides */
+.dark body, body.high-contrast {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+}
+
+/* Accessible Focus Ring */
+*:focus-visible {
+  outline: 3px solid #FFC107 !important;
+  outline-offset: 2px !important;
+}
