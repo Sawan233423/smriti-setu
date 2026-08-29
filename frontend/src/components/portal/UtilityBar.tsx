@@ -88,14 +88,15 @@ export const UtilityBar: React.FC = () => {
           {/* High Contrast Toggle */}
           <button
             onClick={toggleHighContrast}
-            className={`inline-flex items-center gap-1 px-2 py-1 rounded-md text-xs font-extrabold transition-all ${
+            title={highContrast ? 'Switch to Standard Theme' : 'Switch to High Contrast Theme'}
+            className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-extrabold transition-all ${
               highContrast
-                ? 'bg-amber-400 text-black'
+                ? 'bg-amber-400 text-black border-2 border-amber-300'
                 : 'bg-[#004085] hover:bg-blue-600 text-white border border-slate-500'
             }`}
           >
-            <Sun className="w-3 h-3" />
-            <span>{highContrast ? 'Standard' : 'Contrast'}</span>
+            <Sun className="w-3.5 h-3.5" />
+            <span>{highContrast ? 'Contrast: ON' : 'Contrast: OFF'}</span>
           </button>
 
         </div>

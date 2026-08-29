@@ -42,12 +42,12 @@ export const AccessibilityToolbar: React.FC = () => {
             onClick={toggleHighContrast}
             className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold transition-all ${
               highContrast
-                ? 'bg-contrast-border text-black font-bold'
+                ? 'bg-amber-400 text-black font-bold shadow-xs'
                 : 'bg-forest-900 hover:bg-forest-800 text-ivory-200'
             }`}
           >
-            <Sun className="w-3 h-3" />
-            {t('accessibility.highContrast')}
+            <Sun className="w-3.5 h-3.5" />
+            {highContrast ? 'Contrast: ON' : 'Contrast: OFF'}
           </button>
 
           {/* Voice Assist Toggle */}

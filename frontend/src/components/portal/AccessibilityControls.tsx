@@ -69,7 +69,7 @@ export const AccessibilityControls: React.FC = () => {
             }`}
           >
             <Sun className="w-4 h-4" />
-            <span>{highContrast ? 'High Contrast Active' : 'Enable High Contrast'}</span>
+            <span>{highContrast ? 'High Contrast: ON' : 'Standard Contrast: OFF'}</span>
           </button>
         </div>
 
