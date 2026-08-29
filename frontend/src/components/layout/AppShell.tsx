@@ -10,14 +10,14 @@ interface AppShellProps {
 
 export const AppShell: React.FC<AppShellProps> = ({ children }) => {
   const [activeTab, setActiveTab] = useState('home');
-  const { fontSizeScale, highContrast, reducedMotion } = useAccessibilityStore();
+  const { fontSizeScale, reducedMotion } = useAccessibilityStore();
 
   return (
     <div
       style={{ fontSize: `${fontSizeScale * 100}%` }}
-      className={`min-h-screen flex flex-col font-sans transition-all ${
-        highContrast ? 'bg-black text-white' : 'bg-ivory-50 text-charcoal-900'
-      } ${reducedMotion ? 'motion-reduce' : ''}`}
+      className={`min-h-screen flex flex-col font-sans transition-all bg-ivory-50 text-charcoal-900 ${
+        reducedMotion ? 'motion-reduce' : ''
+      }`}
     >
       <AccessibilityToolbar />
       <OfflineBanner />

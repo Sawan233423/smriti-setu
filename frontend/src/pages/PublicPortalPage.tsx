@@ -14,6 +14,8 @@ import { ResourcesSection } from '../components/portal/ResourcesSection';
 import { GovFooter } from '../components/portal/GovFooter';
 import { AccessibilityControls } from '../components/portal/AccessibilityControls';
 import { AuthModal } from '../components/portal/AuthModal';
+import { AIVoiceAssistant } from '../components/common/AIVoiceAssistant';
+import { CognitiveStreakWidget } from '../components/common/CognitiveStreakWidget';
 import { useAccessibilityStore } from '../stores/useAccessibilityStore';
 import { UserRole } from '../types';
 
@@ -27,7 +29,7 @@ export const PublicPortalPage: React.FC<PublicPortalPageProps> = ({ onOpenAppAut
   const [searchQuery, setSearchQuery] = useState('');
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
-  const { fontSizeScale, highContrast, reducedMotion } = useAccessibilityStore();
+  const { fontSizeScale, reducedMotion } = useAccessibilityStore();
 
   const handleSelectStateFilter = (stateName: string) => {
     setStateFilter(stateName);
@@ -74,14 +76,14 @@ export const PublicPortalPage: React.FC<PublicPortalPageProps> = ({ onOpenAppAut
   return (
     <div
       style={{ fontSize: `${fontSizeScale * 100}%` }}
-      className={`min-h-screen flex flex-col font-sans transition-all ${
-        highContrast ? 'bg-black text-white' : 'bg-slate-50 text-slate-900'
-      } ${reducedMotion ? 'motion-reduce' : ''}`}
+      className={`min-h-screen flex flex-col font-sans transition-all bg-slate-50 text-slate-900 ${
+        reducedMotion ? 'motion-reduce' : ''
+      }`}
     >
-      {/* 1. Official Government Utility Bar (#0B3B60) */}
+      {/* 1. Official Government Utility Bar */}
       <UtilityBar />
 
-      {/* 2. Official Government Header & Navy Navigation Bar (#004085) */}
+      {/* 2. Official Government Header & Navigation */}
       <MainNavigation
         activeTab={activeTab}
         setActiveTab={setActiveTab}
@@ -92,7 +94,12 @@ export const PublicPortalPage: React.FC<PublicPortalPageProps> = ({ onOpenAppAut
       {/* 3. Scrolling Latest Updates Ticker */}
       <GovTicker />
 
-      {/* 4. Main Interactive Hero Carousel Slider (On Home View) */}
+      {/* 4. Daily AI Cognitive Score & Streak Bar */}
+      <div className="max-w-7xl mx-auto px-4 pt-4 w-full">
+        <CognitiveStreakWidget onOpenAppAuth={() => setIsAuthModalOpen(true)} />
+      </div>
+
+      {/* 5. Main Hero Carousel Slider */}
       {activeTab === 'home' && (
         <GovHeroSlider
           onFindFacility={handleFindFacility}
@@ -101,7 +108,7 @@ export const PublicPortalPage: React.FC<PublicPortalPageProps> = ({ onOpenAppAut
         />
       )}
 
-      {/* 5. Main Content Sections */}
+      {/* 6. Main Content Sections */}
       <main className="flex-1">
         {activeTab === 'home' && (
           <>
@@ -155,10 +162,13 @@ export const PublicPortalPage: React.FC<PublicPortalPageProps> = ({ onOpenAppAut
         {activeTab === 'resources' && <ResourcesSection />}
       </main>
 
-      {/* 6. Official Government Footer */}
+      {/* 7. Official Government Footer */}
       <GovFooter />
 
-      {/* 7. Government Role Auth Modal */}
+      {/* 8. Floating AI Voice Assistant */}
+      <AIVoiceAssistant onSearchQuery={handleSearchSubmit} />
+
+      {/* 9. Role Auth Modal */}
       <AuthModal
         isOpen={isAuthModalOpen}
         onClose={() => setIsAuthModalOpen(false)}

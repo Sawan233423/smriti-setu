@@ -16,7 +16,7 @@ export const Card: React.FC<CardProps> = ({
   hoverable = false,
   variant = 'flat',
 }) => {
-  const { highContrast, elderlyMode } = useAccessibilityStore();
+  const { elderlyMode } = useAccessibilityStore();
 
   const variantStyles = {
     flat: 'bg-white rounded-3xl p-6 md:p-8 shadow-soft border border-ivory-200/60',
@@ -27,12 +27,11 @@ export const Card: React.FC<CardProps> = ({
 
   const hoverStyles = hoverable ? 'hover:shadow-photo hover:border-forest-600/40 cursor-pointer transition-all duration-300 transform hover:-translate-y-1' : '';
   const elderlyStyles = elderlyMode ? 'p-8 md:p-10 shadow-elderly' : '';
-  const contrastStyles = highContrast ? 'bg-black text-white border-2 border-contrast-border shadow-none' : '';
 
   return (
     <div
       onClick={onClick}
-      className={`${variantStyles} ${hoverStyles} ${elderlyStyles} ${contrastStyles} ${className}`}
+      className={`${variantStyles} ${hoverStyles} ${elderlyStyles} ${className}`}
     >
       {children}
     </div>

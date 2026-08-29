@@ -5,9 +5,8 @@
 @layer base {
   body {
     font-family: 'Outfit', 'Inter', 'Noto Sans Assamese', 'Noto Sans Bengali', system-ui, sans-serif;
-    color: #212529;
-    background-color: #F8F9FA;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    color: #1E293B;
+    background-color: #F8FAFC;
   }
 }
 
@@ -33,105 +32,37 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #E9ECEF;
+  background: #F1F5F9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #004085;
+  background: #0284C7;
   border-radius: 4px;
 }
 
 /* Accessible Focus Ring */
 *:focus-visible {
-  outline: 3px solid #FFC107 !important;
+  outline: 3px solid #0EA5E9 !important;
   outline-offset: 2px !important;
 }
 
-/* High Contrast Mode Styling Overrides (WCAG 2.1 AAA Compliant) */
-html.high-contrast,
-html.high-contrast body,
-body.high-contrast {
-  background-color: #000000 !important;
-  color: #FFFFFF !important;
+/* Pulse Glow Effect for AI Voice Assistant */
+@keyframes pulse-glow {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(14, 165, 233, 0); }
 }
 
-html.high-contrast div,
-html.high-contrast section,
-html.high-contrast header,
-html.high-contrast footer,
-html.high-contrast nav,
-html.high-contrast main,
-html.high-contrast article,
-html.high-contrast aside,
-html.high-contrast form {
-  background-color: #000000 !important;
-  color: #FFFFFF !important;
-  border-color: #666666 !important;
+.ai-pulse {
+  animation: pulse-glow 2.5s infinite;
 }
 
-html.high-contrast h1,
-html.high-contrast h2,
-html.high-contrast h3,
-html.high-contrast h4,
-html.high-contrast h5,
-html.high-contrast h6,
-html.high-contrast p,
-html.high-contrast span,
-html.high-contrast label,
-html.high-contrast li,
-html.high-contrast strong,
-html.high-contrast b,
-html.high-contrast th,
-html.high-contrast td {
-  color: #FFFFFF !important;
+/* Glassmorphism Card Utility */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
 }
 
-html.high-contrast a,
-html.high-contrast .text-amber-300,
-html.high-contrast .text-amber-400,
-html.high-contrast .text-yellow-400,
-html.high-contrast .text-emerald-400,
-html.high-contrast .text-blue-400,
-html.high-contrast .text-govNavy {
-  color: #FFFF00 !important;
-}
-
-html.high-contrast button {
-  background-color: #000000 !important;
-  color: #FFFF00 !important;
-  border: 2px solid #FFFF00 !important;
-  font-weight: 800 !important;
-}
-
-html.high-contrast button:hover,
-html.high-contrast button:focus {
-  background-color: #FFFF00 !important;
-  color: #000000 !important;
-  border: 2px solid #FFFFFF !important;
-}
-
-html.high-contrast input,
-html.high-contrast select,
-html.high-contrast textarea {
-  background-color: #000000 !important;
-  color: #FFFFFF !important;
-  border: 2px solid #FFFF00 !important;
-}
-
-html.high-contrast input::placeholder {
-  color: #CCCCCC !important;
-}
-
-html.high-contrast .shadow-gov,
-html.high-contrast .shadow-md,
-html.high-contrast .shadow-lg,
-html.high-contrast .shadow-xl,
-html.high-contrast .shadow-2xl,
-html.high-contrast .border {
-  border: 2px solid #FFFFFF !important;
-  box-shadow: none !important;
-}
-
-/* Elderly Mode Adjustments */
+/* Elderly Mode Layout Enhancements */
 html.elderly-mode body {
   letter-spacing: 0.015em;
   line-height: 1.6;
@@ -140,5 +71,5 @@ html.elderly-mode body {
 html.elderly-mode button,
 html.elderly-mode a,
 html.elderly-mode input {
-  min-height: 42px;
+  min-height: 44px;
 }

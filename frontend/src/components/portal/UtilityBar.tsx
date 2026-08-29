@@ -1,5 +1,5 @@
 import React from 'react';
-import { PhoneCall, Sun, Globe } from 'lucide-react';
+import { PhoneCall, Globe, Volume2 } from 'lucide-react';
 import { useAccessibilityStore } from '../../stores/useAccessibilityStore';
 import { useLanguageStore, SupportedLanguage } from '../../stores/useLanguageStore';
 import { IndianFlagBadge } from '../common/GovEmblem';
@@ -9,10 +9,10 @@ export const UtilityBar: React.FC = () => {
   const { t } = useTranslation();
   const { currentLanguage, availableLanguages, setLanguage } = useLanguageStore();
   const {
-    highContrast,
     fontSizeScale,
+    speechAssistEnabled,
     setFontSizeScale,
-    toggleHighContrast,
+    toggleSpeechAssist,
   } = useAccessibilityStore();
 
   return (
@@ -27,7 +27,7 @@ export const UtilityBar: React.FC = () => {
           </span>
         </div>
 
-        {/* Right: Helplines, Font Resizers, Contrast & Official Language Selector */}
+        {/* Right: Helplines, Font Resizers, Speech Assist & Official Language Selector */}
         <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
           
           {/* Toll-Free Helplines */}
@@ -85,18 +85,18 @@ export const UtilityBar: React.FC = () => {
             </button>
           </div>
 
-          {/* High Contrast Toggle */}
+          {/* Voice Speech Assist Toggle */}
           <button
-            onClick={toggleHighContrast}
-            title={highContrast ? 'Switch to Standard Theme' : 'Switch to High Contrast Theme'}
+            onClick={toggleSpeechAssist}
+            title="Toggle Voice Speech Guidance"
             className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-extrabold transition-all ${
-              highContrast
-                ? 'bg-amber-400 text-black border-2 border-amber-300'
+              speechAssistEnabled
+                ? 'bg-emerald-500 text-slate-950 font-extrabold'
                 : 'bg-[#004085] hover:bg-blue-600 text-white border border-slate-500'
             }`}
           >
-            <Sun className="w-3.5 h-3.5" />
-            <span>{highContrast ? 'Contrast: ON' : 'Contrast: OFF'}</span>
+            <Volume2 className="w-3.5 h-3.5" />
+            <span>{speechAssistEnabled ? 'Voice Assist: ON' : 'Voice Assist: OFF'}</span>
           </button>
 
         </div>

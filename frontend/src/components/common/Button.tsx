@@ -17,7 +17,7 @@ export const Button: React.FC<ButtonProps> = ({
   disabled,
   ...props
 }) => {
-  const { elderlyMode, highContrast } = useAccessibilityStore();
+  const { elderlyMode } = useAccessibilityStore();
 
   const effectiveSize = elderlyMode && size !== 'sm' ? 'elderly' : size;
 
@@ -30,7 +30,7 @@ export const Button: React.FC<ButtonProps> = ({
     elderly: 'px-8 py-4.5 text-xl font-bold gap-3 min-h-[60px] min-w-[150px] shadow-md', // Elderly accessibility standard
   };
 
-  let variantStyles = {
+  const variantStyles = {
     primary: 'bg-forest-700 hover:bg-forest-800 text-white shadow-soft active:scale-[0.98]',
     secondary: 'bg-ivory-200 hover:bg-ivory-300 text-charcoal-900 active:scale-[0.98]',
     gold: 'bg-gold-500 hover:bg-gold-600 text-slate-950 font-bold shadow-soft active:scale-[0.98]',
@@ -38,10 +38,6 @@ export const Button: React.FC<ButtonProps> = ({
     danger: 'bg-terracotta-600 hover:bg-terracotta-700 text-white shadow-soft',
     ghost: 'hover:bg-ivory-200/60 text-charcoal-700',
   }[variant];
-
-  if (highContrast) {
-    variantStyles = 'bg-black text-contrast-border border-2 border-contrast-border font-bold hover:bg-charcoal-900';
-  }
 
   return (
     <button

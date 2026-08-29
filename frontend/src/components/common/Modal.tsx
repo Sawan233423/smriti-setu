@@ -15,7 +15,7 @@ export const Modal: React.FC<ModalProps> = ({
   title,
   children,
 }) => {
-  const { highContrast, elderlyMode } = useAccessibilityStore();
+  const { elderlyMode } = useAccessibilityStore();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -34,7 +34,7 @@ export const Modal: React.FC<ModalProps> = ({
       <div
         className={`relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl border border-slate-200 p-6 md:p-8 ${
           elderlyMode ? 'max-w-3xl p-8 md:p-10' : ''
-        } ${highContrast ? 'bg-black text-white border-2 border-yellow-400' : ''}`}
+        }`}
       >
         <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-200">
           <h2 className={`font-bold text-slate-900 ${elderlyMode ? 'text-2xl md:text-3xl' : 'text-xl'}`}>

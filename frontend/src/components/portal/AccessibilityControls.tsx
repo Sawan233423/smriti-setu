@@ -1,17 +1,15 @@
 import React from 'react';
-import { Eye, Volume2, Sun, Type, Sliders, CheckCircle2 } from 'lucide-react';
+import { Volume2, Type, Sliders, Sparkles } from 'lucide-react';
 import { useAccessibilityStore } from '../../stores/useAccessibilityStore';
 import { useTranslation } from 'react-i18next';
 
 export const AccessibilityControls: React.FC = () => {
   const { t } = useTranslation();
   const {
-    highContrast,
     fontSizeScale,
     speechAssistEnabled,
     reducedMotion,
     setFontSizeScale,
-    toggleHighContrast,
     toggleSpeechAssist,
     toggleReducedMotion,
   } = useAccessibilityStore();
@@ -20,12 +18,12 @@ export const AccessibilityControls: React.FC = () => {
     <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-gov space-y-4">
       <div className="flex items-center gap-2 border-b border-slate-200 pb-3">
         <Sliders className="w-5 h-5 text-govNavy" />
-        <h3 className="font-serif font-bold text-lg text-slate-900">
-          Accessibility & Language Preferences (WCAG 2.1 AA Compliant)
+        <h3 className="font-serif font-bold text-lg text-slate-900 flex items-center gap-2">
+          Elderly & Cognitive Accessibility Preferences <Sparkles className="w-4 h-4 text-amber-500" />
         </h3>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-semibold">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-semibold">
         {/* Text Size Resizer */}
         <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
           <span className="text-slate-500 uppercase tracking-wider block text-[10px]">Text Resizer</span>
@@ -55,22 +53,6 @@ export const AccessibilityControls: React.FC = () => {
               A+ (Large)
             </button>
           </div>
-        </div>
-
-        {/* High Contrast */}
-        <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
-          <span className="text-slate-500 uppercase tracking-wider block text-[10px]">Visual Contrast</span>
-          <button
-            onClick={toggleHighContrast}
-            className={`w-full py-2 px-3 rounded-xl border font-bold flex items-center justify-center gap-2 transition-all ${
-              highContrast
-                ? 'bg-amber-400 text-black border-amber-500 font-extrabold'
-                : 'bg-white text-slate-800 border-slate-300 hover:bg-slate-100'
-            }`}
-          >
-            <Sun className="w-4 h-4" />
-            <span>{highContrast ? 'High Contrast: ON' : 'Standard Contrast: OFF'}</span>
-          </button>
         </div>
 
         {/* Text-to-Speech Assist */}

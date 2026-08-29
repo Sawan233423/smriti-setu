@@ -14,7 +14,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
   const { t } = useTranslation();
   const { role, selectedPatient } = useAuthStore();
-  const { elderlyMode, highContrast } = useAccessibilityStore();
+  const { elderlyMode } = useAccessibilityStore();
 
   const patientNav = [
     { id: 'home', labelKey: 'navigation.home' },
@@ -50,9 +50,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
   }[role];
 
   return (
-    <header className={`bg-ivory-50/90 backdrop-blur-md border-b border-ivory-200 sticky top-0 z-40 transition-all ${
-      highContrast ? 'bg-black text-white border-contrast-border' : ''
-    }`}>
+    <header className="bg-ivory-50/90 backdrop-blur-md border-b border-ivory-200 sticky top-0 z-40 transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Single Row Header */}
