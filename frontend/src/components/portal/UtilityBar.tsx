@@ -1,19 +1,12 @@
 import React from 'react';
-import { PhoneCall, Globe, Volume2 } from 'lucide-react';
+import { PhoneCall, Globe } from 'lucide-react';
 import { useAccessibilityStore } from '../../stores/useAccessibilityStore';
 import { useLanguageStore, SupportedLanguage } from '../../stores/useLanguageStore';
 import { IndianFlagBadge } from '../common/GovEmblem';
-import { useTranslation } from 'react-i18next';
 
 export const UtilityBar: React.FC = () => {
-  const { t } = useTranslation();
   const { currentLanguage, availableLanguages, setLanguage } = useLanguageStore();
-  const {
-    fontSizeScale,
-    speechAssistEnabled,
-    setFontSizeScale,
-    toggleSpeechAssist,
-  } = useAccessibilityStore();
+  const { fontSizeScale, setFontSizeScale } = useAccessibilityStore();
 
   return (
     <div className="bg-[#0B3B60] text-white py-1.5 px-4 text-xs font-bold border-b border-blue-950 sticky top-0 z-50 shadow-xs">
@@ -27,7 +20,7 @@ export const UtilityBar: React.FC = () => {
           </span>
         </div>
 
-        {/* Right: Helplines, Font Resizers, Speech Assist & Official Language Selector */}
+        {/* Right: Helplines, Font Resizers & Official Language Selector */}
         <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
           
           {/* Toll-Free Helplines */}
@@ -84,20 +77,6 @@ export const UtilityBar: React.FC = () => {
               A+
             </button>
           </div>
-
-          {/* Voice Speech Assist Toggle */}
-          <button
-            onClick={toggleSpeechAssist}
-            title="Toggle Voice Speech Guidance"
-            className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-extrabold transition-all ${
-              speechAssistEnabled
-                ? 'bg-emerald-500 text-slate-950 font-extrabold'
-                : 'bg-[#004085] hover:bg-blue-600 text-white border border-slate-500'
-            }`}
-          >
-            <Volume2 className="w-3.5 h-3.5" />
-            <span>{speechAssistEnabled ? 'Voice Assist: ON' : 'Voice Assist: OFF'}</span>
-          </button>
 
         </div>
 

@@ -95,7 +95,7 @@ export const PublicPortalPage: React.FC<PublicPortalPageProps> = ({ onOpenAppAut
       <GovTicker />
 
       {/* 4. Daily AI Cognitive Score & Streak Bar */}
-      <div className="max-w-7xl mx-auto px-4 pt-4 w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-2 w-full">
         <CognitiveStreakWidget onOpenAppAuth={() => setIsAuthModalOpen(true)} />
       </div>
 

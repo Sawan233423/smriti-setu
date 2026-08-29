@@ -76,7 +76,7 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
       </div>
 
       {/* 2. Primary Navigation Bar (#004085 Opaque Dark Navy) */}
-      <nav className="bg-[#004085] text-white sticky top-[37px] z-40 shadow-md border-y border-[#0B3B60]">
+      <nav className="bg-[#004085] text-white shadow-md border-y border-[#0B3B60]">
         <div className="max-w-7xl mx-auto px-4 flex items-center justify-between min-h-[48px]">
           
           {/* Mobile Menu Toggle Button */}
