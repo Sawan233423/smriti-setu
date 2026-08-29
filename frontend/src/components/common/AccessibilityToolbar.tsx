@@ -1,16 +1,11 @@
 import React from 'react';
-import { Volume2, Sparkles, Type } from 'lucide-react';
+import { Sparkles, Type } from 'lucide-react';
 import { useAccessibilityStore } from '../../stores/useAccessibilityStore';
 import { useTranslation } from 'react-i18next';
 
 export const AccessibilityToolbar: React.FC = () => {
   const { t } = useTranslation();
-  const {
-    elderlyMode,
-    speechAssistEnabled,
-    toggleElderlyMode,
-    toggleSpeechAssist,
-  } = useAccessibilityStore();
+  const { elderlyMode, toggleElderlyMode } = useAccessibilityStore();
 
   return (
     <div className="bg-forest-950 text-ivory-100 py-1.5 px-4 text-xs font-medium border-b border-forest-900">
@@ -33,19 +28,6 @@ export const AccessibilityToolbar: React.FC = () => {
           >
             <Type className="w-3 h-3" />
             {elderlyMode ? t('accessibility.elderlyModeActive') : t('accessibility.elderlyMode')}
-          </button>
-
-          {/* Voice Assist Toggle */}
-          <button
-            onClick={toggleSpeechAssist}
-            className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-bold transition-all ${
-              speechAssistEnabled
-                ? 'bg-forest-400 text-forest-950 font-bold'
-                : 'bg-forest-900 hover:bg-forest-800 text-ivory-200'
-            }`}
-          >
-            <Volume2 className="w-3 h-3" />
-            {t('accessibility.voiceAssist')}
           </button>
         </div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Volume2, Type, Sliders, Sparkles } from 'lucide-react';
+import { Type, Sliders, Sparkles } from 'lucide-react';
 import { useAccessibilityStore } from '../../stores/useAccessibilityStore';
 import { useTranslation } from 'react-i18next';
 
@@ -7,10 +7,8 @@ export const AccessibilityControls: React.FC = () => {
   const { t } = useTranslation();
   const {
     fontSizeScale,
-    speechAssistEnabled,
     reducedMotion,
     setFontSizeScale,
-    toggleSpeechAssist,
     toggleReducedMotion,
   } = useAccessibilityStore();
 
@@ -23,7 +21,7 @@ export const AccessibilityControls: React.FC = () => {
         </h3>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-semibold">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-semibold">
         {/* Text Size Resizer */}
         <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
           <span className="text-slate-500 uppercase tracking-wider block text-[10px]">Text Resizer</span>
@@ -53,22 +51,6 @@ export const AccessibilityControls: React.FC = () => {
               A+ (Large)
             </button>
           </div>
-        </div>
-
-        {/* Text-to-Speech Assist */}
-        <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
-          <span className="text-slate-500 uppercase tracking-wider block text-[10px]">Speech Assistance</span>
-          <button
-            onClick={toggleSpeechAssist}
-            className={`w-full py-2 px-3 rounded-xl border font-bold flex items-center justify-center gap-2 transition-all ${
-              speechAssistEnabled
-                ? 'bg-emerald-600 text-white border-emerald-700 font-extrabold'
-                : 'bg-white text-slate-800 border-slate-300 hover:bg-slate-100'
-            }`}
-          >
-            <Volume2 className="w-4 h-4" />
-            <span>{speechAssistEnabled ? 'Voice Assist On' : 'Enable Voice Assist'}</span>
-          </button>
         </div>
 
         {/* Reduced Motion */}
