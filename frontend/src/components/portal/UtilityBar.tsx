@@ -9,8 +9,8 @@ export const UtilityBar: React.FC = () => {
   const { fontSizeScale, setFontSizeScale } = useAccessibilityStore();
 
   return (
-    <div className="bg-[#0B3B60] text-white py-1.5 px-4 text-xs font-bold border-b border-blue-950 sticky top-0 z-50 shadow-xs">
-      <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+    <div className="bg-[#0B3B60] text-white py-1.5 border-b border-blue-950 sticky top-0 z-50 shadow-xs">
+      <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 flex flex-wrap items-center justify-between gap-3 text-xs font-bold">
         
         {/* Left: Indian Government & Ministry Identity */}
         <div className="flex items-center gap-3">
@@ -20,7 +20,7 @@ export const UtilityBar: React.FC = () => {
           </span>
         </div>
 
-        {/* Right: Helplines, Font Resizers & Official Language Selector */}
+        {/* Right: Helplines & Official Language Selector */}
         <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
           
           {/* Toll-Free Helplines */}
@@ -44,38 +44,6 @@ export const UtilityBar: React.FC = () => {
                 </option>
               ))}
             </select>
-          </div>
-
-          {/* Text Size Resizers A- A A+ */}
-          <div className="flex items-center gap-1 bg-[#004085] p-0.5 rounded-md border border-slate-500">
-            <span className="text-[10px] text-slate-200 px-1 font-bold">Text:</span>
-            <button
-              onClick={() => setFontSizeScale(0.9)}
-              title="Decrease Font Size"
-              className={`px-1.5 py-0.5 text-xs font-bold rounded ${
-                fontSizeScale === 0.9 ? 'bg-amber-400 text-slate-950' : 'hover:bg-blue-600 text-white'
-              }`}
-            >
-              A-
-            </button>
-            <button
-              onClick={() => setFontSizeScale(1.0)}
-              title="Standard Font Size"
-              className={`px-1.5 py-0.5 text-xs font-bold rounded ${
-                fontSizeScale === 1.0 ? 'bg-amber-400 text-slate-950' : 'hover:bg-blue-600 text-white'
-              }`}
-            >
-              A
-            </button>
-            <button
-              onClick={() => setFontSizeScale(1.2)}
-              title="Increase Font Size"
-              className={`px-1.5 py-0.5 text-xs font-bold rounded ${
-                fontSizeScale === 1.2 ? 'bg-amber-400 text-slate-950' : 'hover:bg-blue-600 text-white'
-              }`}
-            >
-              A+
-            </button>
           </div>
 
         </div>

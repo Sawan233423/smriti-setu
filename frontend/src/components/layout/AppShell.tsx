@@ -10,12 +10,11 @@ interface AppShellProps {
 
 export const AppShell: React.FC<AppShellProps> = ({ children }) => {
   const [activeTab, setActiveTab] = useState('home');
-  const { fontSizeScale, reducedMotion } = useAccessibilityStore();
+  const { reducedMotion } = useAccessibilityStore();
 
   return (
     <div
-      style={{ fontSize: `${fontSizeScale * 100}%` }}
-      className={`min-h-screen flex flex-col font-sans transition-all bg-ivory-50 text-charcoal-900 ${
+      className={`min-h-screen flex flex-col font-sans transition-all bg-slate-50 text-slate-900 ${
         reducedMotion ? 'motion-reduce' : ''
       }`}
     >
@@ -23,20 +22,20 @@ export const AppShell: React.FC<AppShellProps> = ({ children }) => {
       <OfflineBanner />
       <Header activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-10">
+      <main className="flex-1 w-full px-4 sm:px-8 md:px-12 lg:px-16 py-6 md:py-10">
         {children(activeTab, setActiveTab)}
       </main>
 
-      <footer className="bg-forest-950 text-ivory-300 py-8 border-t border-forest-900 text-sm">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <footer className="bg-[#07243C] text-slate-200 py-8 border-t-4 border-amber-400 text-sm font-sans">
+        <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 font-medium">
-            <span className="w-2.5 h-2.5 rounded-full bg-gold-400"></span>
-            <span className="font-serif font-bold text-ivory-50">SMRITI-SETU</span>
-            <span className="text-forest-700">|</span>
-            <span className="text-ivory-200">North Eastern Region Cognitive Health Ecosystem</span>
+            <span className="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+            <span className="font-serif font-bold text-white">SMRITI-SETU</span>
+            <span className="text-slate-400">|</span>
+            <span className="text-slate-200">North Eastern Region Cognitive Health Ecosystem</span>
           </div>
-          <p className="text-xs text-ivory-400">
-            Encrypted Patient Profile & Regional Facility Node Management
+          <p className="text-xs text-slate-400 font-medium">
+            Encrypted Patient Profile & Regional Healthcare Node Management
           </p>
         </div>
       </footer>

@@ -5,7 +5,7 @@ import { sampleProgramsData } from '../../data/programsData';
 export const ProgramsSection: React.FC = () => {
   return (
     <section id="programs-section" className="py-12 md:py-16 bg-slate-50 border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 space-y-8">
+      <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 space-y-8">
         
         <div className="border-b border-slate-200 pb-4">
           <span className="text-xs font-extrabold uppercase tracking-wider text-govNavy-dark">

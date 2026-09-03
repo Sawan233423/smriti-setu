@@ -55,36 +55,51 @@ export const CaregiverSection: React.FC<CaregiverSectionProps> = ({ onExploreCar
 
         </div>
 
-        {/* Right Column: Caregiver Summary Card Frame */}
+        {/* Right Column: Caregiver Summary Card Frame with Real Photo */}
         <div className="lg:col-span-5 bg-white p-6 rounded-3xl border border-cream-border shadow-banner space-y-4">
-          <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+          
+          {/* Real Caregiver Photograph Frame */}
+          <div className="relative h-44 rounded-2xl overflow-hidden border border-slate-200 shadow-xs">
+            <img
+              src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=800&q=80"
+              alt="Indian Family Caregiver assisting elderly dementia patient"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-3 text-white">
+              <span className="text-[11px] font-bold text-amber-300">
+                Family Memory Garden & Daily Reminders Support
+              </span>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between border-b border-slate-100 pb-2">
             <span className="text-xs font-extrabold uppercase tracking-wider text-forest-800">
               Caregiver Insight Summary
             </span>
             <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">
-              Active Patient: Ranjit Borthakur
+              Patient: Ranjit Borthakur (Assam)
             </span>
           </div>
 
-          <div className="space-y-3 text-xs font-medium text-charcoal">
-            <div className="p-3 bg-cream rounded-xl border border-cream-border flex items-center justify-between">
-              <span>Today's Sessions Completed</span>
-              <strong className="text-forest-800 font-extrabold">2 of 2</strong>
+          <div className="space-y-2.5 text-xs font-medium text-charcoal">
+            <div className="p-2.5 bg-cream rounded-xl border border-cream-border flex items-center justify-between">
+              <span>Today's Cognitive Sessions</span>
+              <strong className="text-forest-800 font-extrabold">2 of 2 Completed</strong>
             </div>
 
-            <div className="p-3 bg-cream rounded-xl border border-cream-border flex items-center justify-between">
-              <span>Weekly Score Accuracy</span>
-              <strong className="text-forest-800 font-extrabold">88% (Level Up Ready)</strong>
+            <div className="p-2.5 bg-cream rounded-xl border border-cream-border flex items-center justify-between">
+              <span>Weekly Memory Recall Trend</span>
+              <strong className="text-forest-800 font-extrabold">88% (Stable Progress)</strong>
             </div>
 
-            <div className="p-3 bg-cream rounded-xl border border-cream-border flex items-center justify-between">
-              <span>Medicine Schedule</span>
-              <strong className="text-emerald-700 font-extrabold">08:00 AM Done</strong>
+            <div className="p-2.5 bg-cream rounded-xl border border-cream-border flex items-center justify-between">
+              <span>Geriatric Medicine Schedule</span>
+              <strong className="text-emerald-700 font-extrabold">08:00 AM Verified</strong>
             </div>
           </div>
 
           <p className="text-[11px] text-charcoal-muted italic pt-1 border-t border-slate-100">
-            "AI-assisted observation — not a medical diagnosis."
+            "AI-assisted cognitive observations & daily care tracking."
           </p>
         </div>
 

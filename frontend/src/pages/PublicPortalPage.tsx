@@ -31,42 +31,44 @@ export const PublicPortalPage: React.FC<PublicPortalPageProps> = ({ onOpenAppAut
 
   const { fontSizeScale, reducedMotion } = useAccessibilityStore();
 
+  const scrollToTopHeader = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleTabChange = (tabId: string) => {
+    setActiveTab(tabId);
+    scrollToTopHeader();
+  };
+
   const handleSelectStateFilter = (stateName: string) => {
     setStateFilter(stateName);
     setActiveTab('facilities');
-    const facSection = document.getElementById('facilities-section');
-    if (facSection) facSection.scrollIntoView({ behavior: 'smooth' });
+    scrollToTopHeader();
   };
 
   const handleSelectService = (serviceId: string) => {
     if (serviceId === 'srv-2') {
       setActiveTab('smriti-setu');
-      const setuSection = document.getElementById('smriti-setu-section');
-      if (setuSection) setuSection.scrollIntoView({ behavior: 'smooth' });
     } else {
       setActiveTab('facilities');
-      const facSection = document.getElementById('facilities-section');
-      if (facSection) facSection.scrollIntoView({ behavior: 'smooth' });
     }
+    scrollToTopHeader();
   };
 
   const handleSearchSubmit = (query: string) => {
     setSearchQuery(query);
     setActiveTab('facilities');
-    const facSection = document.getElementById('facilities-section');
-    if (facSection) facSection.scrollIntoView({ behavior: 'smooth' });
+    scrollToTopHeader();
   };
 
   const handleFindFacility = () => {
     setActiveTab('facilities');
-    const facSection = document.getElementById('facilities-section');
-    if (facSection) facSection.scrollIntoView({ behavior: 'smooth' });
+    scrollToTopHeader();
   };
 
   const handleExploreServices = () => {
     setActiveTab('services');
-    const srvSection = document.getElementById('services-section');
-    if (srvSection) srvSection.scrollIntoView({ behavior: 'smooth' });
+    scrollToTopHeader();
   };
 
   const handleLoginSuccess = (role: UserRole) => {
@@ -75,7 +77,6 @@ export const PublicPortalPage: React.FC<PublicPortalPageProps> = ({ onOpenAppAut
 
   return (
     <div
-      style={{ fontSize: `${fontSizeScale * 100}%` }}
       className={`min-h-screen flex flex-col font-sans transition-all bg-slate-50 text-slate-900 ${
         reducedMotion ? 'motion-reduce' : ''
       }`}
@@ -86,7 +87,7 @@ export const PublicPortalPage: React.FC<PublicPortalPageProps> = ({ onOpenAppAut
       {/* 2. Official Government Header & Navigation */}
       <MainNavigation
         activeTab={activeTab}
-        setActiveTab={setActiveTab}
+        setActiveTab={handleTabChange}
         onSearch={handleSearchSubmit}
         onOpenAppAuth={() => setIsAuthModalOpen(true)}
       />
@@ -94,55 +95,27 @@ export const PublicPortalPage: React.FC<PublicPortalPageProps> = ({ onOpenAppAut
       {/* 3. Scrolling Latest Updates Ticker */}
       <GovTicker />
 
-      {/* 4. Daily AI Cognitive Score & Streak Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-2 w-full">
-        <CognitiveStreakWidget onOpenAppAuth={() => setIsAuthModalOpen(true)} />
-      </div>
-
-      {/* 5. Main Hero Carousel Slider */}
-      {activeTab === 'home' && (
-        <GovHeroSlider
-          onFindFacility={handleFindFacility}
-          onExploreServices={handleExploreServices}
-          onAccessSmritiSetu={() => setIsAuthModalOpen(true)}
-        />
-      )}
-
-      {/* 6. Main Content Sections */}
+      {/* 4. Main Content Sections (Clean, uncluttered, spacious layout) */}
       <main className="flex-1">
         {activeTab === 'home' && (
           <>
-            <Hero
+            {/* Single Primary Hero Gateway (Slider + Quick e-Services) */}
+            <GovHeroSlider
               onFindFacility={handleFindFacility}
               onExploreServices={handleExploreServices}
-              onSearchSubmit={handleSearchSubmit}
+              onAccessSmritiSetu={() => setIsAuthModalOpen(true)}
             />
-            
-            <ServiceExplorer onSelectService={handleSelectService} />
-            
-            <StateNetwork onSelectStateFilter={handleSelectStateFilter} />
-            
-            <FacilitySearch initialStateFilter={stateFilter} initialSearchQuery={searchQuery} />
-            
+
+            {/* Featured Smriti-Setu Cognitive Care Mission */}
             <SmritiSetuSection onAccessPlatform={() => setIsAuthModalOpen(true)} />
-            
-            <ProgramsSection />
-            
+
+            {/* Latest Regional Updates & News */}
             <UpdatesSection />
-
-            <div className="max-w-7xl mx-auto px-4 py-8">
-              <AccessibilityControls />
-            </div>
-
-            <ResourcesSection />
           </>
         )}
 
         {activeTab === 'services' && (
-          <>
-            <ServiceExplorer onSelectService={handleSelectService} />
-            <FacilitySearch initialStateFilter={stateFilter} initialSearchQuery={searchQuery} />
-          </>
+          <ServiceExplorer onSelectService={handleSelectService} />
         )}
 
         {activeTab === 'facilities' && (
@@ -159,7 +132,14 @@ export const PublicPortalPage: React.FC<PublicPortalPageProps> = ({ onOpenAppAut
 
         {activeTab === 'programs' && <ProgramsSection />}
 
-        {activeTab === 'resources' && <ResourcesSection />}
+        {activeTab === 'resources' && (
+          <>
+            <ResourcesSection />
+            <div className="max-w-7xl mx-auto px-4 py-8">
+              <AccessibilityControls />
+            </div>
+          </>
+        )}
       </main>
 
       {/* 7. Official Government Footer */}

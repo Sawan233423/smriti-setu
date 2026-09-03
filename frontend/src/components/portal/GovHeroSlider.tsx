@@ -26,30 +26,30 @@ export const GovHeroSlider: React.FC<GovHeroSliderProps> = ({
 }) => {
   const [activeSlide, setActiveSlide] = useState(0);
 
-  // Clean, Authentic North Eastern Region (India) Healthcare Featured Banner Stories
+  // Authentic North Eastern Region (India) Dementia & Cognitive Healthcare Featured Banner Stories
   const heroSlides = [
     {
       id: 1,
-      badge: 'National Health Mission · North Eastern Region',
-      title: 'Connecting Memories, Families & Healthcare Services Across North East India',
-      subtitle: 'Official public healthcare directory & cognitive assistance mission serving citizens across Assam, Arunachal Pradesh, Manipur, Meghalaya, Mizoram, Nagaland, Sikkim, and Tripura.',
-      image: 'https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=1200&q=80', // Assam Tea Garden & River Hills
-      ctaText: 'Find Hospitals in NER',
+      badge: 'AI Dementia Screening & Cognitive Care · NER Mission',
+      title: 'Smriti-Setu: Early Dementia Care & Cognitive Assistance for North East India',
+      subtitle: 'Addressing the critical gap in early dementia screening, memory care, and geriatric support for elderly citizens across Assam, Arunachal, Manipur, Meghalaya, Mizoram, Nagaland, Sikkim & Tripura.',
+      image: 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1200&q=80', // Real Indian Senior Citizen Memory Care
+      ctaText: 'Explore Cognitive Platform',
     },
     {
       id: 2,
-      badge: 'Digital India & Elderly Wellness Initiative',
-      title: 'Smriti-Setu Multilingual Cognitive Care & Memory Assistance',
-      subtitle: 'Personalized memory exercises, family memory garden timelines, and daily care reminders in English, Hindi, Assamese (অসমীয়া), and Bengali (বাংলা).',
-      image: 'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1200&q=80', // Beautiful Sikkim & Eastern Himalayas Health Node
-      ctaText: 'Explore Cognitive Care',
+      badge: 'Geriatric Memory Care & Multilingual Recall',
+      title: 'Culturally Familiar Memory Exercises & Family Memory Gardens',
+      subtitle: 'Personalized memory activities, daily medicine reminders, and family story prompt cards in English, Hindi, Assamese (অসমীয়া), and Bengali (বাংলা).',
+      image: 'https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=1200&q=80', // Elderly Senior Woman Memory Stimulation
+      ctaText: 'Access Smriti-Setu Platform',
     },
     {
       id: 3,
-      badge: 'Ayushman Bharat PM-JAY & Health Network',
-      title: '24x7 Regional District Hospitals & Tele-MANAS Health Helplines',
-      subtitle: 'Immediate access to government district hospitals, primary health centers, specialized medical college centers, and toll-free mental health support.',
-      image: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=1200&q=80', // Meghalaya Misty Hills Healthcare
+      badge: 'Hilly Terrain Healthcare & Tele-Consultation Node',
+      title: 'Bridging Distance in Remote Hilly Districts with Offline-First AI Sync',
+      subtitle: 'Immediate connection between primary health centers, family caregivers, district hospital neurologists, and 24x7 Tele-MANAS toll-free mental health support.',
+      image: 'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=80', // Doctor Consultation with Senior Patient
       ctaText: 'View Regional Health Network',
     },
   ];
@@ -65,7 +65,7 @@ export const GovHeroSlider: React.FC<GovHeroSliderProps> = ({
 
   return (
     <div className="bg-slate-100 border-b-4 border-govNavy py-6 md:py-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 space-y-6">
         
         {/* Main 2-Column Hero Gateway Grid (Government Portal Style - Clean White Cards) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">

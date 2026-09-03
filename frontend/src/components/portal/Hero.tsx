@@ -82,21 +82,21 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
           </div>
 
-          {/* Right Visual Image Frame */}
+          {/* Right Visual Image Frame: Real Senior Citizen Cognitive Care Visual */}
           <div className="lg:col-span-5 relative">
             <div className="rounded-3xl overflow-hidden shadow-banner border-4 border-white bg-slate-900 h-72 md:h-96 relative group">
               <img
-                src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651?auto=format&fit=crop&w=1000&q=80"
-                alt="North East India Healthcare Infrastructure"
+                src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1000&q=80"
+                alt="North East India Senior Citizen Dementia & Cognitive Care"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6 text-white">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent flex items-end p-6 text-white">
                 <div className="space-y-1">
                   <span className="text-xs font-bold text-amber-300 flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5 text-amber-300" /> Brahmaputra Valley Health Hub · Assam
+                    <MapPin className="w-3.5 h-3.5 text-amber-300" /> Regional Senior Care Node · North East India
                   </span>
                   <p className="font-serif font-bold text-base md:text-lg">
-                    Regional Public Health Infrastructure Network
+                    Smriti-Setu AI Dementia Screening & Memory Recall Mission
                   </p>
                 </div>
               </div>

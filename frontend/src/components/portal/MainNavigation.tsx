@@ -40,7 +40,7 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
     <div className="bg-white border-b-2 border-slate-300">
       
       {/* 1. Official Government Header Branding Area */}
-      <div className="max-w-7xl mx-auto px-4 py-3 md:py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 py-3 md:py-4 flex flex-col md:flex-row items-center justify-between gap-4">
         
         {/* State Emblem of India & Department Title */}
         <div className="flex items-center gap-3 md:gap-4">
@@ -77,7 +77,7 @@ export const MainNavigation: React.FC<MainNavigationProps> = ({
 
       {/* 2. Primary Navigation Bar (#004085 Opaque Dark Navy) */}
       <nav className="bg-[#004085] text-white shadow-md border-y border-[#0B3B60]">
-        <div className="max-w-7xl mx-auto px-4 flex items-center justify-between min-h-[48px]">
+        <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 flex items-center justify-between min-h-[48px]">
           
           {/* Mobile Menu Toggle Button */}
           <button

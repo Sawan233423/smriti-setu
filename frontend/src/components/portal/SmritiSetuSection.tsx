@@ -17,7 +17,7 @@ interface SmritiSetuSectionProps {
 export const SmritiSetuSection: React.FC<SmritiSetuSectionProps> = ({ onAccessPlatform }) => {
   return (
     <section id="smriti-setu-section" className="py-14 md:py-20 bg-gradient-to-br from-govNavy-dark via-govNavy to-blue-900 text-white border-b border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 space-y-12">
+      <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 space-y-12">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
@@ -38,51 +38,91 @@ export const SmritiSetuSection: React.FC<SmritiSetuSectionProps> = ({ onAccessPl
           </p>
         </div>
 
-        {/* Visual Workflow: Patient -> Cognitive Activities -> Memory Assistance -> Caregiver -> Clinician */}
+        {/* Visual Workflow: Patient -> Cognitive Activities -> Caregiver -> Clinician with Real Photos */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
           
           {/* Step 1: Patient */}
-          <div className="bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20 text-center space-y-3">
-            <div className="w-14 h-14 bg-amber-400 text-slate-950 rounded-2xl flex items-center justify-center mx-auto shadow-xs">
-              <Heart className="w-7 h-7" />
+          <div className="bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 overflow-hidden text-center flex flex-col justify-between group">
+            <div className="h-32 relative overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=600&q=80" 
+                alt="Senior Citizen Patient from North East India"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+              />
+              <div className="absolute inset-0 bg-slate-950/40" />
+              <div className="absolute top-3 left-1/2 -translate-x-1/2 w-10 h-10 bg-amber-400 text-slate-950 rounded-xl flex items-center justify-center shadow-md">
+                <Heart className="w-5 h-5" />
+              </div>
             </div>
-            <h3 className="font-serif font-bold text-xl text-white">1. Patient</h3>
-            <p className="text-slate-200 text-xs leading-relaxed">
-              Warm greeting, large typography, audio prompts, and peaceful daily memory activities.
-            </p>
+            <div className="p-5 space-y-2">
+              <h3 className="font-serif font-bold text-lg text-white">1. Patient Portal</h3>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Warm greeting, large typography, audio guidance, and peaceful memory exercises tailored for NER elders.
+              </p>
+            </div>
           </div>
 
-          {/* Step 2: Cognitive Activities */}
-          <div className="bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20 text-center space-y-3">
-            <div className="w-14 h-14 bg-emerald-400 text-slate-950 rounded-2xl flex items-center justify-center mx-auto shadow-xs">
-              <BrainCircuit className="w-7 h-7" />
+          {/* Step 2: Cognitive Care */}
+          <div className="bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 overflow-hidden text-center flex flex-col justify-between group">
+            <div className="h-32 relative overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" 
+                alt="Adaptive Cognitive Memory Care Activities"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+              />
+              <div className="absolute inset-0 bg-slate-950/40" />
+              <div className="absolute top-3 left-1/2 -translate-x-1/2 w-10 h-10 bg-emerald-400 text-slate-950 rounded-xl flex items-center justify-center shadow-md">
+                <BrainCircuit className="w-5 h-5" />
+              </div>
             </div>
-            <h3 className="font-serif font-bold text-xl text-white">2. Cognitive Care</h3>
-            <p className="text-slate-200 text-xs leading-relaxed">
-              5 interactive games with automatic adaptive difficulty adjustments.
-            </p>
+            <div className="p-5 space-y-2">
+              <h3 className="font-serif font-bold text-lg text-white">2. AI Cognitive Care</h3>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                5 interactive games with automatic difficulty scaling, spatial recall, and picture recognition.
+              </p>
+            </div>
           </div>
 
           {/* Step 3: Caregiver */}
-          <div className="bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20 text-center space-y-3">
-            <div className="w-14 h-14 bg-blue-400 text-slate-950 rounded-2xl flex items-center justify-center mx-auto shadow-xs">
-              <UserCheck className="w-7 h-7" />
+          <div className="bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 overflow-hidden text-center flex flex-col justify-between group">
+            <div className="h-32 relative overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?auto=format&fit=crop&w=600&q=80" 
+                alt="Family Caregiver Memory Garden Timeline"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+              />
+              <div className="absolute inset-0 bg-slate-950/40" />
+              <div className="absolute top-3 left-1/2 -translate-x-1/2 w-10 h-10 bg-blue-400 text-slate-950 rounded-xl flex items-center justify-center shadow-md">
+                <UserCheck className="w-5 h-5" />
+              </div>
             </div>
-            <h3 className="font-serif font-bold text-xl text-white">3. Caregiver</h3>
-            <p className="text-slate-200 text-xs leading-relaxed">
-              Memory Garden photo albums, daily medicine reminders, and engagement tracking.
-            </p>
+            <div className="p-5 space-y-2">
+              <h3 className="font-serif font-bold text-lg text-white">3. Caregiver Support</h3>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Memory Garden photo timelines, medicine reminders, and real-time engagement alerts for families.
+              </p>
+            </div>
           </div>
 
           {/* Step 4: Clinician */}
-          <div className="bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/20 text-center space-y-3">
-            <div className="w-14 h-14 bg-amber-400 text-slate-950 rounded-2xl flex items-center justify-center mx-auto shadow-xs">
-              <Stethoscope className="w-7 h-7" />
+          <div className="bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 overflow-hidden text-center flex flex-col justify-between group">
+            <div className="h-32 relative overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=600&q=80" 
+                alt="Clinician Dementia Screening Analytics"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+              />
+              <div className="absolute inset-0 bg-slate-950/40" />
+              <div className="absolute top-3 left-1/2 -translate-x-1/2 w-10 h-10 bg-amber-400 text-slate-950 rounded-xl flex items-center justify-center shadow-md">
+                <Stethoscope className="w-5 h-5" />
+              </div>
             </div>
-            <h3 className="font-serif font-bold text-xl text-white">4. Clinician</h3>
-            <p className="text-slate-200 text-xs leading-relaxed">
-              Session trends, response time metrics, and AI-assisted observations.
-            </p>
+            <div className="p-5 space-y-2">
+              <h3 className="font-serif font-bold text-lg text-white">4. Clinician Insights</h3>
+              <p className="text-slate-200 text-xs leading-relaxed">
+                Session trends, response time metrics, and AI-assisted cognitive decline screening reports.
+              </p>
+            </div>
           </div>
 
         </div>

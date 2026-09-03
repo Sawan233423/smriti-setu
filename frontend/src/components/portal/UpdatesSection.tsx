@@ -5,7 +5,7 @@ import { sampleUpdatesData } from '../../data/updatesData';
 export const UpdatesSection: React.FC = () => {
   return (
     <section id="updates-section" className="py-12 md:py-16 bg-white border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 space-y-8">
+      <div className="w-full px-4 sm:px-8 md:px-12 lg:px-16 space-y-8">
         
         <div className="flex items-center justify-between border-b border-slate-200 pb-4">
           <div>
