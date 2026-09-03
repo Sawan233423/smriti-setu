@@ -97,21 +97,22 @@ export const AIVoiceAssistant: React.FC<AIVoiceAssistantProps> = ({ onSearchQuer
       {/* Floating Trigger Button at Bottom Right */}
       <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
         <button
-          onClick={() => setIsOpen(true)}
-          className="ai-pulse bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-700 hover:from-sky-500 hover:to-indigo-600 text-white font-extrabold px-4 py-3 rounded-full shadow-2xl flex items-center gap-2.5 transition-all transform hover:scale-105 border-2 border-white/40 backdrop-blur-md"
+          onClick={() => setIsOpen(!isOpen)}
+          className="ai-pulse bg-gradient-to-r from-[#004085] via-blue-800 to-indigo-900 hover:from-blue-700 hover:to-indigo-800 text-white font-extrabold px-4 py-3 rounded-full shadow-2xl flex items-center gap-2.5 transition-all transform hover:scale-105 border-2 border-amber-400 backdrop-blur-md"
         >
           <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
             <Bot className="w-5 h-5 text-amber-300 animate-bounce" />
           </div>
-          <span className="hidden sm:inline text-sm tracking-wide font-bold">Ask Smriti AI</span>
-          <Sparkles className="w-4 h-4 text-amber-300" />
+          <span className="hidden sm:inline text-sm tracking-wide font-bold">
+            {isOpen ? 'Close Chat' : 'Ask Smriti AI'}
+          </span>
+          {isOpen ? <X className="w-4 h-4 text-amber-300" /> : <Sparkles className="w-4 h-4 text-amber-300" />}
         </button>
       </div>
 
-      {/* AI Assistant Drawer Modal */}
+      {/* AI Assistant Floating Corner Popup Window */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-end sm:items-center justify-center p-2 sm:p-4 animate-fadeIn">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl w-full max-w-lg overflow-hidden flex flex-col max-h-[85vh]">
+        <div className="fixed bottom-20 right-4 sm:right-6 z-50 w-[92vw] sm:w-[380px] md:w-[400px] h-[520px] max-h-[78vh] bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 rounded-3xl shadow-2xl overflow-hidden flex flex-col animate-in slide-in-from-bottom-5 duration-200">
             
             {/* Header */}
             <div className="bg-gradient-to-r from-slate-900 via-sky-950 to-slate-900 p-4 text-white flex items-center justify-between border-b border-slate-800">
@@ -209,8 +210,7 @@ export const AIVoiceAssistant: React.FC<AIVoiceAssistantProps> = ({ onSearchQuer
             </div>
 
           </div>
-        </div>
-      )}
-    </>
+        )}
+      </>
   );
 };
